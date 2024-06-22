@@ -2,7 +2,6 @@ package parsers
 
 import (
 	"io"
-	"io/ioutil"
 
 	"github.com/h4ck3r-04/aquatone/core"
 
@@ -17,7 +16,7 @@ func NewNmapParser() *NmapParser {
 
 func (p *NmapParser) Parse(r io.Reader) ([]string, error) {
 	var targets []string
-	bytes, err := ioutil.ReadAll(r)
+	bytes, err := io.ReadAll(r)
 	if err != nil {
 		return targets, err
 	}
